@@ -15,7 +15,7 @@ export function Layout() {
       {!isEmergency && <Header />}
 
       {/* Main Content Area */}
-      <main className="flex-1 w-full max-w-md mx-auto sm:max-w-xl md:max-w-2xl lg:max-w-3xl px-3 sm:px-4 py-4 pb-28">
+      <main className={isLanding ? "flex-1 w-full" : "flex-1 w-full max-w-md mx-auto sm:max-w-xl md:max-w-3xl lg:max-w-4xl px-3 sm:px-4 py-4 pb-28"}>
         <Outlet />
       </main>
 
