@@ -42,22 +42,22 @@ export function BookJob() {
   const samplePresets = [
     {
       title: "💧 Leaking Sink Pipe",
-      text: "Kitchen sink ke neeche se paani tapak raha hai pipe joint se.",
+      text: "Kitchen sink drain pipe joint is leaking continuously (नल से पानी टपक रहा है).",
       imageUrl: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&auto=format&fit=crop&q=80"
     },
     {
       title: "⚡ Sparking Switchboard",
-      text: "Main switchboard me se spark nikal raha hai aur mcb trip ho raha hai.",
+      text: "Main switchboard is sparking and MCB trips repeatedly (स्विचबोर्ड में स्पार्क).",
       imageUrl: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format&fit=crop&q=80"
     },
     {
       title: "🪚 Wardrobe Door Sagging",
-      text: "Bedroom almirah ka darwaza phash raha hai zameen pe ghisa raha hai.",
+      text: "Bedroom wardrobe door is sagging and scraping against the floor (अलमारी का दरवाजा ढीला).",
       imageUrl: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=600&auto=format&fit=crop&q=80"
     },
     {
       title: "🧹 Deep Kitchen Cleaning",
-      text: "Raiyani kitchen aur exhaust fan ki greasy chiknai saaf karni hai deep clean.",
+      text: "Deep cleaning required for kitchen tiles, grease deposits and exhaust fan (रसोई की गहरी सफाई).",
       imageUrl: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&auto=format&fit=crop&q=80"
     }
   ];

@@ -49,7 +49,7 @@ export function CustomerDashboard() {
             <span>Andheri West, Mumbai • 7 Bungalows</span>
           </div>
           <h1 className="text-xl sm:text-2xl font-black text-textDark mt-0.5">
-            नमस्ते, Priya!
+            Hello, Priya! <span className="text-sm font-normal text-primary">(नमस्ते)</span>
           </h1>
           <p className="text-xs text-textMuted">
             What help does your home need today?

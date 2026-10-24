@@ -49,7 +49,7 @@ export function WorkerDashboard() {
             <span>Chowk: Andheri West Station Naka</span>
           </div>
           <h1 className="text-xl sm:text-2xl font-black text-textDark mt-0.5">
-            नमस्ते, {currentWorker.name} Bhai!
+            Hello, {currentWorker.name} Bhai! <span className="text-sm font-normal text-primary">(नमस्ते)</span>
           </h1>
           <p className="text-xs text-textMuted">
             {currentWorker.trade} • {currentWorker.experience} experience
@@ -82,7 +82,7 @@ export function WorkerDashboard() {
               {isWorkerReady ? "● LIVE AT CHOWK" : "○ OFFLINE"}
             </span>
             <h2 className="text-lg sm:text-xl font-black">
-              काम के लिए तैयार
+              Ready for Work <span className="text-sm font-semibold opacity-85">(काम के लिए तैयार)</span>
             </h2>
             <p className="text-xs opacity-90">
               {isWorkerReady
