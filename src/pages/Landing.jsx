@@ -100,7 +100,7 @@ export function Landing() {
                 className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 text-xs font-semibold tracking-wide text-amber-300 shadow-sm"
               >
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping inline-block" />
-                <span>भारत का डिजिटल चौक • India's First Digital Chowk</span>
+                <span>India's First Digital Chowk • भारत का डिजिटल चौक</span>
               </motion.div>
 
               {/* Main Headline */}
@@ -111,13 +111,13 @@ export function Landing() {
                 className="space-y-2"
               >
                 <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.1]">
-                  हर पड़ोस में
+                  Every Neighbourhood,
                   <span className="block bg-gradient-to-r from-amber-300 via-orange-400 to-[#FF6B35] bg-clip-text text-transparent">
-                    एक विश्वसनीय चौक।
+                    A Trusted Marketplace.
                   </span>
                 </h1>
-                <p className="text-xl sm:text-2xl font-bold text-orange-100/90 tracking-normal">
-                  Every neighbourhood, a trusted, fair marketplace.
+                <p className="text-base sm:text-lg font-bold text-orange-200/90 tracking-normal">
+                  हर पड़ोस में एक डिजिटल, निष्पक्ष और विश्वसनीय चौक
                 </p>
               </motion.div>
 
@@ -143,19 +143,20 @@ export function Landing() {
                 </p>
                 <div className="flex flex-wrap justify-center lg:justify-start gap-2">
                   {[
-                    { label: "💧 Leaking Tap", trade: "Plumber", desc: "Nal se paani tapak raha hai / Leaking kitchen faucet" },
-                    { label: "⚡ Sparking Switch", trade: "Electrician", desc: "Short circuit and switchboard sparking" },
-                    { label: "🚪 Door Hinges", trade: "Carpenter", desc: "Wardrobe door hinge loose and sagging" },
-                    { label: "🧹 Deep Cleaning", trade: "Cleaner", desc: "Kitchen deep grease & tile cleaning" },
-                    { label: "❄️ AC Not Cooling", trade: "AC Technician", desc: "Split AC blowing warm air, filter dirty" },
-                    { label: "👩‍🍳 Daily Cook", trade: "Cook", desc: "Daily North/South Indian dinner cooking" }
+                    { label: "💧 Leaking Tap", sub: "नल लीकेज", trade: "Plumber", desc: "Leaking kitchen faucet / Nal se paani tapak raha hai" },
+                    { label: "⚡ Sparking Switch", sub: "शॉर्ट सर्किट", trade: "Electrician", desc: "Short circuit and switchboard sparking" },
+                    { label: "🚪 Door Hinges", sub: "दरवाजा फिटिंग", trade: "Carpenter", desc: "Wardrobe door hinge loose and sagging" },
+                    { label: "🧹 Deep Cleaning", sub: "घर की सफाई", trade: "Cleaner", desc: "Kitchen deep grease & tile cleaning" },
+                    { label: "❄️ AC Not Cooling", sub: "एसी सर्विस", trade: "AC Technician", desc: "Split AC blowing warm air, filter dirty" },
+                    { label: "👩‍🍳 Daily Cook", sub: "रसोईया", trade: "Cook", desc: "Daily North/South Indian dinner cooking" }
                   ].map((chip) => (
                     <button
                       key={chip.label}
                       onClick={() => handleQuickBook(chip.trade, chip.desc)}
-                      className="text-xs bg-white/10 hover:bg-white/20 active:bg-primary border border-white/20 text-white font-medium px-3 py-1.5 rounded-full transition-all flex items-center gap-1 group shadow-sm hover:scale-105"
+                      className="text-xs bg-white/10 hover:bg-white/20 active:bg-primary border border-white/20 text-white font-medium px-3 py-1.5 rounded-full transition-all flex items-center gap-1.5 group shadow-sm hover:scale-105"
                     >
                       <span>{chip.label}</span>
+                      <span className="text-[10px] text-amber-200/80 font-normal">({chip.sub})</span>
                       <ChevronRight className="w-3 h-3 text-amber-300 group-hover:translate-x-0.5 transition-transform" />
                     </button>
                   ))}
@@ -179,13 +180,13 @@ export function Landing() {
                       🏠
                     </div>
                     <div>
-                      <span className="text-[11px] font-black text-primary uppercase tracking-wider block">
-                        मुझे मदद चाहिए
-                      </span>
-                      <span className="text-base font-extrabold text-[#2D1B00] block">
+                      <span className="text-base font-extrabold text-[#2D1B00] block leading-tight">
                         I Need Help
                       </span>
-                      <span className="text-[10px] text-gray-500 font-semibold">
+                      <span className="text-[11px] font-bold text-primary uppercase tracking-wider block mt-0.5">
+                        मुझे काम करवाना है
+                      </span>
+                      <span className="text-[10px] text-gray-500 font-semibold block mt-0.5">
                         30-Min Dispatch • 7-Day Guarantee
                       </span>
                     </div>
@@ -203,14 +204,14 @@ export function Landing() {
                       🔨
                     </div>
                     <div>
-                      <span className="text-[11px] font-black text-amber-300 uppercase tracking-wider block">
-                        मैं काम करता हूँ
-                      </span>
-                      <span className="text-base font-extrabold text-white block">
+                      <span className="text-base font-extrabold text-white block leading-tight">
                         I'm a Worker
                       </span>
-                      <span className="text-[10px] text-teal-200 font-semibold">
-                        Keep Your Rate • Instant UPI Payout
+                      <span className="text-[11px] font-bold text-amber-300 uppercase tracking-wider block mt-0.5">
+                        मैं काम करता हूँ
+                      </span>
+                      <span className="text-[10px] text-teal-200 font-semibold block mt-0.5">
+                        Keep 100% Rate • Instant UPI Payout
                       </span>
                     </div>
                   </div>
@@ -449,14 +450,14 @@ export function Landing() {
             <div className="flex items-center gap-2 mb-1.5">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
               <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest">
-                Chowk Pulse • लाइव चौक
+                Chowk Pulse • Live Marketplace (लाइव चौक)
               </span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
               Ready Right Now in Your Neighbourhood
             </h2>
             <p className="text-sm text-gray-500 mt-1">
-              Workers toggled "Kaam ke liye taiyaar" within 3 km of Andheri West, Mumbai.
+              Active verified workers ready for 30-min dispatch in Andheri West, Mumbai • आस-पास के उपलब्ध कारीगर
             </p>
           </div>
           <Link
@@ -802,10 +803,13 @@ export function Landing() {
         <div className="relative overflow-hidden bg-gradient-to-br from-[#FF6B35] via-[#E8531D] to-[#0B4F6C] text-white rounded-3xl p-8 sm:p-12 shadow-2xl">
           <div className="relative z-10 space-y-4 max-w-2xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
-              हर काम, हर वक्त, हर पड़ोस में।
+              Trusted Help, Right When You Need It.
             </h2>
             <p className="text-sm sm:text-base text-orange-100 font-medium">
-              Join thousands of households and skilled workers making the chowk digital, trusted, and fair.
+              Join thousands of households and skilled workers making local services digital, trusted, and fair.
+            </p>
+            <p className="text-xs text-orange-200/90 font-semibold">
+              हर काम, हर वक्त, निष्पक्ष और भरोसेमंद सेवा • 30-Min Fast Dispatch
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
               <button

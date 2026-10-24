@@ -23,15 +23,15 @@ export function Header() {
           </div>
           <div className="flex flex-col">
             <div className="flex items-center gap-1.5">
-              <span className="font-black text-xl tracking-tight text-primary">
-                सहायक
-              </span>
-              <span className="font-extrabold text-sm tracking-wide text-secondary uppercase">
+              <span className="font-black text-xl tracking-tight text-primary uppercase">
                 Sahayak
+              </span>
+              <span className="font-extrabold text-xs tracking-wide text-secondary bg-orange-100/80 px-1.5 py-0.5 rounded">
+                सहायक
               </span>
             </div>
             <span className="text-[10px] text-textMuted font-medium leading-none -mt-0.5">
-              Digital Chowk • विश्वसनीय सेवा
+              Digital Chowk • Trusted Local Services • विश्वसनीय सेवा
             </span>
           </div>
         </Link>
