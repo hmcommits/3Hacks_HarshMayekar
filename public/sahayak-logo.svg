@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="sahayakGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B35"/>
+      <stop offset="100%" stop-color="#FF8A50"/>
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B4F6C"/>
+      <stop offset="100%" stop-color="#1F85B2"/>
+    </linearGradient>
+  </defs>
+  <!-- Background badge -->
+  <rect width="100" height="100" rx="24" fill="url(#sahayakGrad)"/>
+  <!-- Decorative chowk diamond -->
+  <rect x="22" y="22" width="56" height="56" rx="14" fill="#FFFFFF" transform="rotate(45 50 50)"/>
+  <!-- Central emblem: Handshake + Tool / Compass union -->
+  <path d="M35 50 C35 42 42 36 50 36 C58 36 65 42 65 50 C65 58 58 64 50 64" stroke="#0B4F6C" stroke-width="5" stroke-linecap="round"/>
+  <path d="M42 50 L48 56 L62 42" stroke="#FF6B35" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="50" cy="50" r="4" fill="#FFB627"/>
+</svg>

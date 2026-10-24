@@ -1,0 +1,17 @@
+{
+  "name": "Sahayak — Trusted Local Services",
+  "short_name": "Sahayak",
+  "description": "Every neighbourhood's trusted services marketplace",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FF6B35",
+  "theme_color": "#FF6B35",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/sahayak-logo.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
