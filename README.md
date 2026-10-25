@@ -1,7 +1,9 @@
 # Sahayak (सहायक)
+**Domain: Social Impact**
 ### A Hyperlocal On-Demand Blue-Collar Services Platform
 
-> *"Every neighbourhood already has a chowk. We just made it digital, trusted, and fair."*
+> *"A digital, trusted, and fair ecosystem which fills this gap in both English and Hindi languages."*  
+> *(एक डिजिटल, विश्वसनीय और निष्पक्ष इकोसिस्टम जो इस अंतर को अंग्रेजी और हिंदी दोनों भाषाओं में पूरा करता है।)*
 
 ---
 
