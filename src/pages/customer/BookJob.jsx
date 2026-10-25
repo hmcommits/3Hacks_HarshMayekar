@@ -31,6 +31,8 @@ export function BookJob() {
   const [isRecording, setIsRecording] = useState(false);
   const [speechTranscript, setSpeechTranscript] = useState("");
   const [loading, setLoading] = useState(false);
+  const [loadingProgress, setLoadingProgress] = useState(0);
+  const [loadingStepText, setLoadingStepText] = useState("");
   const [error, setError] = useState(null);
 
   // Result state
@@ -129,23 +131,58 @@ export function BookJob() {
   const handleAnalyze = async () => {
     setLoading(true);
     setError(null);
+    setLoadingProgress(8);
+    setLoadingStepText("Scanning diagnostic features with Gemini Vision AI...");
+
+    // Compulsory 5-second (5000ms) loading state with dynamic progress stages
+    const startTime = Date.now();
+    const progressInterval = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const progressRatio = Math.min(elapsed / 5000, 0.95);
+      const percent = Math.round(progressRatio * 100);
+
+      setLoadingProgress(percent);
+
+      if (elapsed < 1200) {
+        setLoadingStepText("Scanning image & isolating defect patterns...");
+      } else if (elapsed < 2400) {
+        setLoadingStepText("Classifying trade & assessing emergency risk flags...");
+      } else if (elapsed < 3700) {
+        setLoadingStepText("Querying Rate Compass for neighbourhood price band...");
+      } else {
+        setLoadingStepText("Generating materials list & finalizing Job Card...");
+      }
+    }, 150);
+
+    const compulsoryFiveSeconds = new Promise((resolve) => setTimeout(resolve, 5000));
 
     try {
-      let analysis;
+      let analysisPromise;
       if (inputMode === "photo" && selectedImage) {
-        analysis = await describeJobFromImage(selectedImage);
+        analysisPromise = describeJobFromImage(selectedImage);
       } else {
         const query = textDescription.trim() || "Water pipe leakage";
-        analysis = await describeJobFromText(query);
+        analysisPromise = describeJobFromText(query);
       }
+
+      // Wait for BOTH the AI analysis AND the compulsory 5-second minimum delay
+      const [analysis] = await Promise.all([analysisPromise, compulsoryFiveSeconds]);
+
+      clearInterval(progressInterval);
+      setLoadingProgress(100);
+      setLoadingStepText("Diagnostic complete! Generating Job Card...");
 
       setJobResult(analysis);
       setStep(2);
     } catch (err) {
       console.error(err);
+      await compulsoryFiveSeconds;
+      clearInterval(progressInterval);
       setError("AI analysis encountered an issue. Loaded standard service analysis.");
     } finally {
+      clearInterval(progressInterval);
       setLoading(false);
+      setLoadingProgress(0);
     }
   };
 
@@ -345,22 +382,55 @@ export function BookJob() {
             onClick={handleAnalyze}
             loading={loading}
             icon={Sparkles}
-            className="mt-4"
+            className="mt-4 shadow-md hover:shadow-lg transition-all"
           >
-            Describe-It with Gemini AI
+            {loading ? "Analyzing with Gemini AI (5s)..." : "Describe-It with Gemini AI"}
           </Button>
 
-          {/* Loading Indicator with Animated AI Brain */}
+          {/* Loading Indicator with Animated 5-Second Diagnostic Progress */}
           {loading && (
-            <div className="p-4 bg-orange-50 rounded-2xl border border-orange-200 text-center space-y-2">
-              <div className="flex items-center justify-center gap-2 text-primary font-bold text-sm">
-                <Sparkles className="w-5 h-5 animate-spin" />
-                <span>Describe-It AI is analyzing the request...</span>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="p-5 bg-gradient-to-br from-orange-50 via-amber-50/50 to-orange-50 rounded-3xl border-2 border-orange-200 text-center space-y-3.5 shadow-soft"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-black uppercase tracking-wider bg-orange-100 text-primary px-2.5 py-1 rounded-full flex items-center gap-1.5 border border-orange-200">
+                  <Sparkles className="w-3.5 h-3.5 animate-spin" />
+                  Gemini 1.5 Flash • Multimodal Engine
+                </span>
+                <span className="text-xs font-black text-primary">
+                  {loadingProgress}%
+                </span>
               </div>
-              <p className="text-xs text-textMuted">
-                Identifying trade, scope, required materials and local Rate Compass band
-              </p>
-            </div>
+
+              {/* Progress Bar (5s Animated Fill) */}
+              <div className="w-full bg-orange-100 h-2.5 rounded-full overflow-hidden p-0.5 border border-orange-200">
+                <div
+                  className="bg-gradient-to-r from-primary via-orange-500 to-amber-500 h-full rounded-full transition-all duration-150 shadow-sm"
+                  style={{ width: `${loadingProgress}%` }}
+                />
+              </div>
+
+              {/* Dynamic Status Text */}
+              <div className="flex items-center justify-center gap-2 text-sm font-bold text-textDark">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping inline-block" />
+                <span>{loadingStepText}</span>
+              </div>
+
+              {/* Diagnostic Stage Checklist */}
+              <div className="grid grid-cols-3 gap-2 pt-1 text-[11px] font-semibold text-textMuted border-t border-orange-100">
+                <div className={`p-1.5 rounded-xl transition-colors ${loadingProgress >= 25 ? "bg-white text-emerald-700 shadow-xs font-bold" : "opacity-60"}`}>
+                  ✓ Image Scan
+                </div>
+                <div className={`p-1.5 rounded-xl transition-colors ${loadingProgress >= 65 ? "bg-white text-emerald-700 shadow-xs font-bold" : "opacity-60"}`}>
+                  ✓ Trade Diagnosis
+                </div>
+                <div className={`p-1.5 rounded-xl transition-colors ${loadingProgress >= 90 ? "bg-white text-emerald-700 shadow-xs font-bold" : "opacity-60"}`}>
+                  ✓ Rate Benchmark
+                </div>
+              </div>
+            </motion.div>
           )}
         </motion.div>
       )}
